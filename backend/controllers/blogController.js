@@ -64,18 +64,20 @@ exports.editPost = async (req, res) => {
     const postId = req.params.id;
 
     // Prepare the update data object
+
+
+    const imageUrl = req.file.path; 
     const updateData = {
         name: req.body.name,
         date: Date.now(),
         text: req.body.text,
         author: req.body.author,
-        tittle: req.body.tittle
+        tittle: req.body.tittle,
+        image:imageUrl
     };
 
     // Check if an image file is provided
-    if (req.file) {
-        updateData.image = req.file.filename; // Add the image filename to the updateData object
-    }
+  
 
     try {
         if (!postId) {
