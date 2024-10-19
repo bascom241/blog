@@ -4,7 +4,7 @@ export const BlogContext = createContext(null)
 
 const BlogContextProvider = (props) => {
   // const url = "https://postblog-5vnj.onrender.com";
-  const url = 'http://localhost:4000';
+  const url = 'https://blog-fd51.onrender.com';
   const [posts, setPosts] = useState([])
   // const [token,setToken] = useState('')
   const [token, setToken] = useState(localStorage.getItem('token') || '');
