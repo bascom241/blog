@@ -1,0 +1,104 @@
+/* Parent container to center everything */
+.container-detail {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    flex-direction: column;  /* Stack items vertically */
+    min-height: 100vh;       /* Ensure full viewport height */
+    margin-top: 6rem;               /* Reset any margins */
+    padding: 2rem;           /* Optional padding */
+  }
+  
+  /* Detail container inside the page */
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;              /* Adjust to control width of content */
+    max-width: 900px;        /* Limit the max width for large screens */
+    overflow: hidden;
+    background-color: #fff;  /* Optional: set a background color */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+    padding: 2rem;           /* Add padding to the content */
+    border-radius: 10px;     /* Optional: round the corners */
+  }
+  
+  .detail-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;  /* Center the text */
+  }
+  
+  .detail-1 img {
+    width: 100%;               /* Ensure the image takes the full width */
+    height: auto;              /* Maintain aspect ratio */
+    margin-bottom: 2rem;       /* Space below the image */
+    object-fit: cover;         /* Ensures the image fits properly */
+    border-radius: 0;          /* Set this to 0 to remove rounding completely */
+  }
+  
+  /* If you want a slight rounded effect */
+  .detail-1 img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    object-fit: cover;
+    border-radius: 8px;        /* Slightly rounded corners */
+  }
+  
+  
+  .post-content {
+    word-break: break-word; /* Ensure long words break */
+    max-width: 100%;
+    overflow-wrap: break-word; /* Another way to ensure word breaks */
+  }
+  
+  .edit-link, .delete {
+    margin: 1rem 0;
+  }
+
+
+  .edit-link {
+  background-color: black;  /* Set background color to black */
+  color: white;             /* White text color */
+  padding: 10px 20px;       /* Padding for the link */
+  border: none;             /* Remove border */
+  display: flex;            /* Align items horizontally */
+  align-items: center;      /* Vertically center items */
+  gap: 10px;                /* Add space between the icon and text */
+  margin: 1rem 0;           /* Margin for spacing */
+  cursor: pointer;          /* Show pointer on hover */
+  transition: background-color 0.3s ease;  /* Smooth transition */
+}
+
+.edit-link:hover {
+  background-color: rgb(51, 51, 51,0.7);   /* Slightly lighter on hover */
+}
+
+.delete {
+  background-color: red;    /* Set background color to red */
+  padding: 10px 20px;       /* Padding for the button */
+  color: white;             /* White text color */
+  border: none;             /* Remove border */
+  cursor: pointer;          /* Show pointer on hover */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+.delete:hover {
+  background-color: darkred;  /* Darker red on hover */
+  border-radius: 10px;        /* Slight rounding on hover */
+}
+
+  
+  /* Mobile adjustments */
+  @media screen and (max-width: 600px) {
+    .container-detail {
+      padding: 1rem; /* Reduce padding on smaller screens */
+    }
+    
+    .detail-container {
+      width: 90%;  /* Adjust the width for small screens */
+    }
+  }
+  
