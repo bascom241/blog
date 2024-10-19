@@ -12,7 +12,7 @@ const Edit = () => {
     toolbar: [
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': +1 }],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
       ['link'],
       ['clean']
     ],
@@ -32,6 +32,7 @@ const Edit = () => {
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
+  // Fetch existing post to edit
   const fetchEdit = async () => {
     try {
       const response = await axios.get(`${url}/api/list/posts/post/${id}`, {
@@ -41,7 +42,6 @@ const Edit = () => {
       });
       setPostEdit(response.data.post);
       setEditTitle(response.data.post.tittle);
-      setImage(null); // Clear the image preview
     } catch (err) {
       console.log(err.message);
     }
@@ -59,13 +59,12 @@ const Edit = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
 
-    // Remove HTML tags from the Quill content
-    const processedText = postEdit.text.replace(/<[^>]*>/g, ''); // Removes all HTML tags
+    const processedText = postEdit.text; // Use text as is with HTML tags
     const formData = new FormData();
     formData.append('tittle', postEdit.tittle);
     formData.append('text', processedText);
 
-    // Only append the image if it is selected
+    // Only append the image if one is selected
     if (image) {
       formData.append('image', image);
     }
